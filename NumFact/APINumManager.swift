@@ -13,24 +13,24 @@ struct Type {
 }
 
 enum ForecastType: FinalURLPoint {
-    case Trivia(apiKey: String, type: Type)
-    case Year(apiKey: String, type: Type)
-    case Date(apiKey: String, type: Type)
-    case Math(apiKey: String, type: Type)
-
+    case trivia(apiKey: String, type: Type)
+    case year(apiKey: String, type: Type)
+    case date(apiKey: String, type: Type)
+    case math(apiKey: String, type: Type)
+    
     var baseURL: URL {
         return URL(string: "http://numbersapi.com")!
     }
     
     var path: String {
         switch self {
-        case .Trivia(let apiKey, let type):
+        case .trivia(let apiKey, let type):
             return "/forecast/\(apiKey)/\(type.typeRandom)"
-        case .Year(let apiKey, let type):
+        case .year(let apiKey, let type):
             return "/forecast/\(apiKey)/\(type.typeRandom)"
-        case .Date(let apiKey, let type):
+        case .date(let apiKey, let type):
             return "/forecast/\(apiKey)/\(type.typeRandom)"
-        case .Math(let apiKey, let type):
+        case .math(let apiKey, let type):
             return "/forecast/\(apiKey)/\(type.typeRandom)"
         }
     }
@@ -63,7 +63,7 @@ final class APINumManager: APIManager {
     
     func fetchCurrentNumWith(type: Type,
                              completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let request = ForecastType.Date(apiKey: self.apiKey,
+        let request = ForecastType.date(apiKey: self.apiKey,
                                         type: type).request
         
         fetch(request: request, parse: { (json) -> CurrentNum? in

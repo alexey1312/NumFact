@@ -13,23 +13,75 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
+        toggleActivitiIndicator(on: true)
+        getRandomWeather()
     }
-
+    //Работа с индикатором
+    var timer = Timer()
+    func timerStart(timeInterval: Double) {
+        //Запустить таймер
+        timer = Timer.scheduledTimer(timeInterval: timeInterval,
+                                     target: self,
+                                     selector: #selector(stopLoadingSpinner),
+                                     userInfo: nil,
+                                     repeats: false)
+        refreshButton.isHidden = false
+    }
+    
+    func toggleActivitiIndicator(on: Bool) {
+        
+        refreshButton.isHidden = on
+        if on  {
+            activityIndicator.startAnimating()
+            timerStart(timeInterval: 10)
+        } else {
+            activityIndicator.stopAnimating()
+        }
+    }
+    
+    lazy var numManager = APINumManager(apiKey: "")
+    let type = Type(typeRandom: "year?json")
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        timerStart(timeInterval: 10)
+        getRandomWeather()
         
-        let currentNum = CurrentNum(text: "Просто текст",
-                                    found: true,
-                                    number: 2018,
-                                    type: "date",
-                                    date: "2018")
-        updateUIWith(currentNum: currentNum)
+    }
+    
+    func getRandomWeather() {
+        numManager.fetchCurrentNumWith(type: type) { (Result) in
+            self.toggleActivitiIndicator(on: false)
+            
+            switch Result{
+            case .Success(let currentNum):
+                self.updateUIWith(currentNum: currentNum)
+            case .Failure(let error as NSError):
+                let alertController = UIAlertController(title: "Unable to get data",
+                                                        message: "\(error.localizedDescription)",
+                    preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default,
+                                             handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     func updateUIWith(currentNum: CurrentNum) {
         self.dateLabel.text = currentNum.date
         self.textLabel.text = currentNum.text
-        }
+    }
+    
+    @objc func stopLoadingSpinner() {
+        self.activityIndicator.stopAnimating()
+    }
 }

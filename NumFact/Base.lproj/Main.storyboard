@@ -15,6 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ub-NM-acV">
+                                <rect key="frame" x="99" y="566" width="177" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="gbT-yl-qJB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Random date button"/>
+                                <connections>
+                                    <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdK-CU-M1w"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpF-fT-xgn">
                                 <rect key="frame" x="160" y="315" width="55" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
@@ -30,33 +41,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ub-NM-acV">
-                                <rect key="frame" x="123" y="566" width="128" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="gbT-yl-qJB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Refresh button"/>
-                                <connections>
-                                    <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdK-CU-M1w"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yXu-as-qVu">
+                                <rect key="frame" x="177" y="442" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="yXu-as-qVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="8V2-cP-dnH"/>
                             <constraint firstItem="lpF-fT-xgn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8ZA-ey-xvJ"/>
                             <constraint firstItem="kYY-kg-mMY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Cn8-cp-14W"/>
                             <constraint firstItem="kYY-kg-mMY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="LUt-Mb-gke"/>
                             <constraint firstItem="3Ub-NM-acV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RH9-jn-aB0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yXu-as-qVu" secondAttribute="trailing" constant="178" id="Wsd-RW-nOD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Ub-NM-acV" secondAttribute="trailing" id="Y5M-Qf-2eB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ub-NM-acV" secondAttribute="bottom" constant="65" id="Yx8-4S-x2Z"/>
                             <constraint firstItem="3Ub-NM-acV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMv-mR-htl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yXu-as-qVu" secondAttribute="bottom" constant="205" id="nsa-Er-Gc8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kYY-kg-mMY" secondAttribute="trailing" constant="101" id="pI1-qL-b5X"/>
+                            <constraint firstItem="yXu-as-qVu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="442" id="q2F-Nd-WJl"/>
                             <constraint firstItem="lpF-fT-xgn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="wad-Q5-t3D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="yXu-as-qVu" id="2bc-DQ-VgF"/>
                         <outlet property="dateLabel" destination="kYY-kg-mMY" id="aZh-7d-VSk"/>
                         <outlet property="refreshButton" destination="3Ub-NM-acV" id="ljn-d5-9yK"/>
                         <outlet property="textLabel" destination="lpF-fT-xgn" id="kWr-67-2jr"/>
