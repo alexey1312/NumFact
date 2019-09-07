@@ -13,6 +13,10 @@
 		845836B02323D64100AD735E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845836AE2323D64100AD735E /* Main.storyboard */; };
 		845836B22323D64200AD735E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845836B12323D64200AD735E /* Assets.xcassets */; };
 		845836B52323D64200AD735E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845836B32323D64200AD735E /* LaunchScreen.storyboard */; };
+		845836BD2323DB7900AD735E /* CurrentNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845836BC2323DB7900AD735E /* CurrentNum.swift */; };
+		845836BF2323E20100AD735E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845836BE2323E20100AD735E /* APIManager.swift */; };
+		845836C12323F82200AD735E /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845836C02323F82200AD735E /* ErrorManager.swift */; };
+		845836C4232400C900AD735E /* APINumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845836C3232400C900AD735E /* APINumManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		845836B12323D64200AD735E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845836B42323D64200AD735E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845836B62323D64200AD735E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845836BC2323DB7900AD735E /* CurrentNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentNum.swift; sourceTree = "<group>"; };
+		845836BE2323E20100AD735E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		845836C02323F82200AD735E /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		845836C3232400C900AD735E /* APINumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINumManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		845836A72323D64100AD735E /* NumFact */ = {
 			isa = PBXGroup;
 			children = (
+				845836BE2323E20100AD735E /* APIManager.swift */,
+				845836C3232400C900AD735E /* APINumManager.swift */,
+				845836C22323F87200AD735E /* NumModel */,
 				845836A82323D64100AD735E /* AppDelegate.swift */,
 				845836AA2323D64100AD735E /* SceneDelegate.swift */,
 				845836AC2323D64100AD735E /* ViewController.swift */,
 				845836AE2323D64100AD735E /* Main.storyboard */,
+				845836C02323F82200AD735E /* ErrorManager.swift */,
 				845836B12323D64200AD735E /* Assets.xcassets */,
 				845836B32323D64200AD735E /* LaunchScreen.storyboard */,
 				845836B62323D64200AD735E /* Info.plist */,
 			);
 			path = NumFact;
+			sourceTree = "<group>";
+		};
+		845836C22323F87200AD735E /* NumModel */ = {
+			isa = PBXGroup;
+			children = (
+				845836BC2323DB7900AD735E /* CurrentNum.swift */,
+			);
+			path = NumModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845836C12323F82200AD735E /* ErrorManager.swift in Sources */,
 				845836AD2323D64100AD735E /* ViewController.swift in Sources */,
 				845836A92323D64100AD735E /* AppDelegate.swift in Sources */,
+				845836C4232400C900AD735E /* APINumManager.swift in Sources */,
+				845836BF2323E20100AD735E /* APIManager.swift in Sources */,
+				845836BD2323DB7900AD735E /* CurrentNum.swift in Sources */,
 				845836AB2323D64100AD735E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
