@@ -9,39 +9,44 @@
 import Foundation
 
 struct Type {
-    let typeRandom: String
+//    let typeRandomTrivia: String = "random/trivia?json"
+//    let typeRandomYear: String = "random/year?json"
+    let typeRandomDate: String
+//    let typeRandomMath: String = "random/math?json"
 }
 
-enum ForecastType: FinalURLPoint {
-    case trivia(apiKey: String, type: Type)
-    case year(apiKey: String, type: Type)
+enum RandomNumType: FinalURLPoint {
+//    case trivia(apiKey: String, type: Type)
+//    case year(apiKey: String, type: Type)
     case date(apiKey: String, type: Type)
-    case math(apiKey: String, type: Type)
+//    case math(apiKey: String, type: Type)
     
     var baseURL: URL {
-        return URL(string: "http://numbersapi.com")!
+        return URL(string: "http://numbersapi.com/random/date?json")!
+//        return URL(string: "http://numbersapi.com")!
     }
     
     var path: String {
         switch self {
-        case .trivia(let apiKey, let type):
-            return "/forecast/\(apiKey)/\(type.typeRandom)"
-        case .year(let apiKey, let type):
-            return "/forecast/\(apiKey)/\(type.typeRandom)"
+//        case .trivia(let apiKey, let type):
+//            return "\(apiKey)/\(type.typeRandomTrivia)"
+//        case .year(let apiKey, let type):
+//            return "\(apiKey)/\(type.typeRandomYear)"
         case .date(let apiKey, let type):
-            return "/forecast/\(apiKey)/\(type.typeRandom)"
-        case .math(let apiKey, let type):
-            return "/forecast/\(apiKey)/\(type.typeRandom)"
+            return "\(apiKey)\(type.typeRandomDate)"
+//            return "\(apiKey)/\(type.typeRandomDate)"
+//        case .math(let apiKey, let type):
+//            return "\(apiKey)/\(type.typeRandomMath)"
         }
     }
     
     var request: URLRequest {
-        let url = URL(string: path, relativeTo: baseURL)
+//        let url = URL(string: path, relativeTo: baseURL)
+        let url = URL(string: "http://numbersapi.com/random/date?json")
         return URLRequest(url: url!)
     }
     
 }
-
 
 final class APINumManager: APIManager {
     var sessionconfiguration: URLSessionConfiguration
@@ -63,11 +68,11 @@ final class APINumManager: APIManager {
     
     func fetchCurrentNumWith(type: Type,
                              completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let request = ForecastType.date(apiKey: self.apiKey,
+        let request = RandomNumType.date(apiKey: self.apiKey,
                                         type: type).request
         
         fetch(request: request, parse: { (json) -> CurrentNum? in
-            if let dictionary = json["application/json"] as? [String: AnyObject] {
+            if let dictionary = json as? [String: AnyObject] {
                 return CurrentNum(JSON: dictionary)
             } else {
                 return nil
@@ -76,29 +81,3 @@ final class APINumManager: APIManager {
         }, completionHandler: completionHandler)
     }
 }
-
-
-
-//
-//
-//
-//
-//
-////Определение ссылки
-////        let formatURL = "?json"
-////        let urlString = "http://numbersapi.com/random/year?json" + formatURL
-//        let baseURL = URL(string: "http://numbersapi.com/")
-//        let fullURL = URL(string: "random/year?json", relativeTo: baseURL)
-//
-//        //Создание сессии
-//        let sessionconfiguration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: sessionconfiguration)
-//
-//        //Создание запроса
-//        _ = URLRequest(url: fullURL!)
-//        let dataTask = session.dataTask(with: fullURL!) { (data, response, error) in
-//
-//        }
-//        dataTask.resume()
-//    }
-//

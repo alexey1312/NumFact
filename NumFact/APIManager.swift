@@ -33,10 +33,10 @@ protocol APIManager {
     func JSONTaskWith(request: URLRequest,
                       completionHandler: @escaping JSONCompletionHandler) -> JSONTask
     func fetch<T: JSONDecodable>(request: URLRequest,
-                                 parse: @escaping ([String: AnyObject]) -> T?,
-                                 completionHandler: @escaping(APIResult<T>) -> Void)
-    //Опциональный
-    //    init(sessionconfiguration: URLSessionConfiguration)
+                  parse: @escaping ([String: AnyObject]) -> T?,
+                  completionHandler: @escaping(APIResult<T>) -> Void)
+//Опциональный
+//    init(sessionconfiguration: URLSessionConfiguration)
 }
 
 extension APIManager {

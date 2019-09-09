@@ -65,9 +65,9 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="yXu-as-qVu" id="2bc-DQ-VgF"/>
-                        <outlet property="dateLabel" destination="kYY-kg-mMY" id="aZh-7d-VSk"/>
                         <outlet property="refreshButton" destination="3Ub-NM-acV" id="ljn-d5-9yK"/>
                         <outlet property="textLabel" destination="lpF-fT-xgn" id="kWr-67-2jr"/>
+                        <outlet property="yearLabel" destination="kYY-kg-mMY" id="aZh-7d-VSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

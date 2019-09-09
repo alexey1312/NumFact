@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -36,21 +36,22 @@ class ViewController: UIViewController {
         refreshButton.isHidden = on
         if on  {
             activityIndicator.startAnimating()
-            timerStart(timeInterval: 10)
+//            timerStart(timeInterval: 10)
         } else {
             activityIndicator.stopAnimating()
         }
     }
     
     lazy var numManager = APINumManager(apiKey: "")
-    let type = Type(typeRandom: "year?json")
-    
+//    let type = Type(typeRandomDate: "random/date?json")
+    let type = Type(typeRandomDate: "")
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerStart(timeInterval: 10)
+//        timerStart(timeInterval: 10)
         getRandomWeather()
         
     }
@@ -77,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     func updateUIWith(currentNum: CurrentNum) {
-        self.dateLabel.text = currentNum.date
+        self.yearLabel.text = currentNum.year
         self.textLabel.text = currentNum.text
     }
     
