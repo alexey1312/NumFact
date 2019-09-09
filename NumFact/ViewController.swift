@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     func updateUIWith(currentNum: CurrentNum) {
-        self.yearLabel.text = currentNum.year
+        self.numberLabel.text = String(currentNum.number)
         self.textLabel.text = currentNum.text
     }
     
