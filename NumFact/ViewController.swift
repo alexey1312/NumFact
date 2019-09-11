@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     //Работа с индикатором
     var timer = Timer()
     func timerStart(timeInterval: Double) {
-        //Запустить таймер
+//        Запустить таймер
         timer = Timer.scheduledTimer(timeInterval: timeInterval,
                                      target: self,
                                      selector: #selector(stopLoadingSpinner),
@@ -36,24 +36,24 @@ class ViewController: UIViewController {
         refreshButton.isHidden = on
         if on  {
             activityIndicator.startAnimating()
-//            timerStart(timeInterval: 10)
+            timerStart(timeInterval: 10)
         } else {
             activityIndicator.stopAnimating()
         }
     }
     
     lazy var numManager = APINumManager(apiKey: "")
-//    let type = Type(typeRandomDate: "random/date?json")
-    let type = Type(typeRandomDate: "")
+    let type = Type(typeRandomTrivia: "random/trivia?json",
+                    typeRandomYear: "random/year?json",
+                    typeRandomDate: "random/date?json",
+                    typeRandomMath: "random/math?json")
+//    let type = Type(typeRandomDate: "")
 
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        timerStart(timeInterval: 10)
+        timerStart(timeInterval: 10)
         getRandomWeather()
-        
     }
     
     func getRandomWeather() {
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     func updateUIWith(currentNum: CurrentNum) {
-        self.numberLabel.text = String(currentNum.number)
+        self.numberLabel.text = String(currentNum.year)
         self.textLabel.text = currentNum.text
     }
     

@@ -9,40 +9,37 @@
 import Foundation
 
 struct Type {
-//    let typeRandomTrivia: String = "random/trivia?json"
-//    let typeRandomYear: String = "random/year?json"
+    let typeRandomTrivia: String
+    let typeRandomYear: String
     let typeRandomDate: String
-//    let typeRandomMath: String = "random/math?json"
+    let typeRandomMath: String
 }
 
 enum RandomNumType: FinalURLPoint {
-//    case trivia(apiKey: String, type: Type)
-//    case year(apiKey: String, type: Type)
+    case trivia(apiKey: String, type: Type)
+    case year(apiKey: String, type: Type)
     case date(apiKey: String, type: Type)
-//    case math(apiKey: String, type: Type)
+    case math(apiKey: String, type: Type)
     
     var baseURL: URL {
-        return URL(string: "http://numbersapi.com/random/date?json")!
-//        return URL(string: "http://numbersapi.com")!
+        return URL(string: "http://numbersapi.com")!
     }
     
     var path: String {
         switch self {
-//        case .trivia(let apiKey, let type):
-//            return "\(apiKey)/\(type.typeRandomTrivia)"
-//        case .year(let apiKey, let type):
-//            return "\(apiKey)/\(type.typeRandomYear)"
+        case .trivia(let apiKey, let type):
+            return "\(apiKey)/\(type.typeRandomTrivia)"
+        case .year(let apiKey, let type):
+            return "\(apiKey)/\(type.typeRandomYear)"
         case .date(let apiKey, let type):
             return "\(apiKey)\(type.typeRandomDate)"
-//            return "\(apiKey)/\(type.typeRandomDate)"
-//        case .math(let apiKey, let type):
-//            return "\(apiKey)/\(type.typeRandomMath)"
+        case .math(let apiKey, let type):
+            return "\(apiKey)/\(type.typeRandomMath)"
         }
     }
     
     var request: URLRequest {
-//        let url = URL(string: path, relativeTo: baseURL)
-        let url = URL(string: "http://numbersapi.com/random/date?json")
+        let url = URL(string: path, relativeTo: baseURL)
         return URLRequest(url: url!)
     }
     
@@ -73,7 +70,6 @@ final class APINumManager: APIManager {
         
         fetch(request: request, parse: { (json) -> CurrentNum? in
             if let dictionary = json as? [String: AnyObject] {
-//                if let dictionary = json as? [String: AnyObject] {
                 return CurrentNum(JSON: dictionary)
             } else {
                 return nil
