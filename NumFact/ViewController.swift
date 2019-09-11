@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
@@ -17,12 +18,17 @@ class ViewController: UIViewController {
     
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
-        getRandomWeather()
+        getRandomDate()
     }
+    
+    
+    
     //Работа с индикатором
     var timer = Timer()
     func timerStart(timeInterval: Double) {
-//        Запустить таймер
+        
+        
+        //        Запустить таймер
         timer = Timer.scheduledTimer(timeInterval: timeInterval,
                                      target: self,
                                      selector: #selector(stopLoadingSpinner),
@@ -47,17 +53,15 @@ class ViewController: UIViewController {
                     typeRandomYear: "random/year?json",
                     typeRandomDate: "random/date?json",
                     typeRandomMath: "random/math?json")
-//    let type = Type(typeRandomDate: "")
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         timerStart(timeInterval: 10)
-        getRandomWeather()
+        getRandomDate()
     }
     
-    func getRandomWeather() {
-        numManager.fetchCurrentNumWith(type: type) { (Result) in
+    func getRandomDate() {
+        numManager.fetchCurrentDateWith(type: type) { (Result) in
             self.toggleActivitiIndicator(on: false)
             
             switch Result{
@@ -77,8 +81,30 @@ class ViewController: UIViewController {
         }
     }
     
+    func getRandomYear() {
+        numManager.fetchCurrentYearWith(type: type) { (Result) in
+            self.toggleActivitiIndicator(on: false)
+            
+            switch Result{
+            case .Success(let currentNum):
+                self.updateUIWith(currentNum: currentNum)
+            case .Failure(let error as NSError):
+                let alertController = UIAlertController(title: "Unable to get data",
+                                                        message: "\(error.localizedDescription)",
+                    preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default,
+                                             handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+
     func updateUIWith(currentNum: CurrentNum) {
-        self.numberLabel.text = String(currentNum.year)
+        self.dateLabel.text = "Date: " + String(currentNum.year)
+        self.numberLabel.text = String(currentNum.number)
         self.textLabel.text = currentNum.text
     }
     

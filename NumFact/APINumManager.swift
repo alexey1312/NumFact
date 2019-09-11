@@ -42,10 +42,10 @@ enum RandomNumType: FinalURLPoint {
         let url = URL(string: path, relativeTo: baseURL)
         return URLRequest(url: url!)
     }
-    
 }
 
 final class APINumManager: APIManager {
+    
     var sessionconfiguration: URLSessionConfiguration
     
     lazy var session: URLSession = {
@@ -63,18 +63,35 @@ final class APINumManager: APIManager {
         self.init(sessionConfiguration: URLSessionConfiguration.default, apiKey: apiKey)
     }
     
-    func fetchCurrentNumWith(type: Type,
-                             completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let request = RandomNumType.date(apiKey: self.apiKey,
-                                        type: type).request
+    func fetchCurrentDateWith(type: Type,
+                              completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
+        let requestDate = RandomNumType.date(apiKey: self.apiKey,
+                                             type: type).request
         
-        fetch(request: request, parse: { (json) -> CurrentNum? in
-            if let dictionary = json as? [String: AnyObject] {
-                return CurrentNum(JSON: dictionary)
-            } else {
-                return nil
-            }
+        fetch(request: requestDate, parse: { (json) -> CurrentNum? in
+            return CurrentNum(JSON: json)
+            
+        }, completionHandler: completionHandler)
+    }
+    
+    func fetchCurrentYearWith(type: Type,
+                              completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
+        let requestYear = RandomNumType.year(apiKey: self.apiKey,
+                                             type: type).request
+        
+        fetch(request: requestYear, parse: { (json) -> CurrentNum? in
+            return CurrentNum(JSON: json)
             
         }, completionHandler: completionHandler)
     }
 }
+//fetch(request: request, parse: { (json) -> CurrentNum? in
+//    if let dictionary = json as? [String: AnyObject] {
+//        return CurrentNum(JSON: dictionary)
+//    } else {
+//        return nil
+//    }
+//
+//}, completionHandler: completionHandler)
+//}
+//}
