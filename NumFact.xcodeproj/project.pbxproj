@@ -45,6 +45,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84464FFF232AB3C5006D1B8B /* SupportFile */ = {
+			isa = PBXGroup;
+			children = (
+				845836B12323D64200AD735E /* Assets.xcassets */,
+			);
+			path = SupportFile;
+			sourceTree = "<group>";
+		};
+		84465000232AB434006D1B8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845836AE2323D64100AD735E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84465001232AB451006D1B8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				845836A82323D64100AD735E /* AppDelegate.swift */,
+				845836AA2323D64100AD735E /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84465002232AB468006D1B8B /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				84465003232AB47E006D1B8B /* Model */,
+				84465004232AB492006D1B8B /* View */,
+				84465001232AB451006D1B8B /* Controller */,
+				84465005232AB4AD006D1B8B /* APIManager */,
+				84464FFF232AB3C5006D1B8B /* SupportFile */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		84465003232AB47E006D1B8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				845836C02323F82200AD735E /* ErrorManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84465004232AB492006D1B8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845836B32323D64200AD735E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84465005232AB4AD006D1B8B /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				845836BE2323E20100AD735E /* APIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		84465006232AB4C7006D1B8B /* NumFact */ = {
+			isa = PBXGroup;
+			children = (
+				84465007232AB4FB006D1B8B /* APINumManager */,
+				845836C22323F87200AD735E /* ModelNum */,
+				84465000232AB434006D1B8B /* View */,
+				84465008232AB521006D1B8B /* Controller */,
+			);
+			path = NumFact;
+			sourceTree = "<group>";
+		};
+		84465007232AB4FB006D1B8B /* APINumManager */ = {
+			isa = PBXGroup;
+			children = (
+				845836C3232400C900AD735E /* APINumManager.swift */,
+			);
+			path = APINumManager;
+			sourceTree = "<group>";
+		};
+		84465008232AB521006D1B8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				845836AC2323D64100AD735E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8458369C2323D64100AD735E = {
 			isa = PBXGroup;
 			children = (
@@ -64,27 +152,19 @@
 		845836A72323D64100AD735E /* NumFact */ = {
 			isa = PBXGroup;
 			children = (
-				845836BE2323E20100AD735E /* APIManager.swift */,
-				845836C3232400C900AD735E /* APINumManager.swift */,
-				845836C22323F87200AD735E /* NumModel */,
-				845836A82323D64100AD735E /* AppDelegate.swift */,
-				845836AA2323D64100AD735E /* SceneDelegate.swift */,
-				845836AC2323D64100AD735E /* ViewController.swift */,
-				845836AE2323D64100AD735E /* Main.storyboard */,
-				845836C02323F82200AD735E /* ErrorManager.swift */,
-				845836B12323D64200AD735E /* Assets.xcassets */,
-				845836B32323D64200AD735E /* LaunchScreen.storyboard */,
 				845836B62323D64200AD735E /* Info.plist */,
+				84465002232AB468006D1B8B /* Aplication */,
+				84465006232AB4C7006D1B8B /* NumFact */,
 			);
 			path = NumFact;
 			sourceTree = "<group>";
 		};
-		845836C22323F87200AD735E /* NumModel */ = {
+		845836C22323F87200AD735E /* ModelNum */ = {
 			isa = PBXGroup;
 			children = (
 				845836BC2323DB7900AD735E /* CurrentNum.swift */,
 			);
-			path = NumModel;
+			path = ModelNum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
