@@ -1,2 +1,2 @@
 # NumFact
-Тестовый проект по работе с JSON.
+Test project for working with JSON.
