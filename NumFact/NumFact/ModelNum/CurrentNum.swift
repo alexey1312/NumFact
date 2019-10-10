@@ -19,9 +19,9 @@ struct CurrentNum {
 extension CurrentNum: JSONDecodable{
     init?(JSON: [String : AnyObject]) {
         guard let text = JSON["text"] as? String,
-        let year = JSON["year"] as? Int,
-        let number = JSON["number"] as? Int,
-        let found = JSON["found"] as? Bool,
+            let year = JSON["year"] as? Int,
+            let number = JSON["number"] as? Int,
+            let found = JSON["found"] as? Bool,
             let type = JSON["type"] as? String else {
                 return nil
         }

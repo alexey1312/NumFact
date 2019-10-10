@@ -27,16 +27,16 @@ enum APIResult<T> {
 }
 
 protocol APIManager {
-    var sessionconfiguration: URLSessionConfiguration { get } //конфигурация сессии
-    var session: URLSession { get } // сесссия на основе sessionconfiguration
+    var sessionconfiguration: URLSessionConfiguration { get } //session configuration
+    var session: URLSession { get } //session based sessionconfiguration
     
     func JSONTaskWith(request: URLRequest,
                       completionHandler: @escaping JSONCompletionHandler) -> JSONTask
     func fetch<T: JSONDecodable>(request: URLRequest,
-                  parse: @escaping ([String: AnyObject]) -> T?,
-                  completionHandler: @escaping(APIResult<T>) -> Void)
-//Опциональный
-//    init(sessionconfiguration: URLSessionConfiguration)
+                                 parse: @escaping ([String: AnyObject]) -> T?,
+                                 completionHandler: @escaping(APIResult<T>) -> Void)
+    //Optional
+    //    init(sessionconfiguration: URLSessionConfiguration)
 }
 
 extension APIManager {

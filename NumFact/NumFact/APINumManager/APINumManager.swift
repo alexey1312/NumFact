@@ -85,13 +85,3 @@ final class APINumManager: APIManager {
         }, completionHandler: completionHandler)
     }
 }
-//fetch(request: request, parse: { (json) -> CurrentNum? in
-//    if let dictionary = json as? [String: AnyObject] {
-//        return CurrentNum(JSON: dictionary)
-//    } else {
-//        return nil
-//    }
-//
-//}, completionHandler: completionHandler)
-//}
-//}

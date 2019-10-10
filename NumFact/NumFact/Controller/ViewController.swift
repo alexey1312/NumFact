@@ -21,14 +21,11 @@ class ViewController: UIViewController {
         getRandomDate()
     }
     
-    
-    
-    //Работа с индикатором
+    //Timer
     var timer = Timer()
     func timerStart(timeInterval: Double) {
         
-        
-        //        Запустить таймер
+        //Play timer
         timer = Timer.scheduledTimer(timeInterval: timeInterval,
                                      target: self,
                                      selector: #selector(stopLoadingSpinner),
@@ -101,7 +98,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     func updateUIWith(currentNum: CurrentNum) {
         self.dateLabel.text = "Date: " + String(currentNum.year)
         self.numberLabel.text = String(currentNum.number)
