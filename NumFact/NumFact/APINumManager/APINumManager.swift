@@ -9,10 +9,10 @@
 import Foundation
 
 struct Type {
-    let typeRandomTrivia: String
-    let typeRandomYear: String
-    let typeRandomDate: String
-    let typeRandomMath: String
+    let typeRandomTrivia: String = "random/trivia?json"
+    let typeRandomYear: String = "random/year?json"
+    let typeRandomDate: String = "random/date?json"
+    let typeRandomMath: String = "random/math?json"
 }
 
 enum RandomNumType: FinalURLPoint {
@@ -84,4 +84,27 @@ final class APINumManager: APIManager {
             
         }, completionHandler: completionHandler)
     }
+    
+    func fetchCurrentTriviaWith(type: Type,
+                                completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
+        let requestYear = RandomNumType.trivia(apiKey: self.apiKey,
+                                               type: type).request
+        
+        fetch(request: requestYear, parse: { (json) -> CurrentNum? in
+            return CurrentNum(JSON: json)
+            
+        }, completionHandler: completionHandler)
+    }
+    
+    func fetchCurrentMathaWith(type: Type,
+                               completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
+        let requestYear = RandomNumType.math(apiKey: self.apiKey,
+                                             type: type).request
+        
+        fetch(request: requestYear, parse: { (json) -> CurrentNum? in
+            return CurrentNum(JSON: json)
+            
+        }, completionHandler: completionHandler)
+    }
 }
+

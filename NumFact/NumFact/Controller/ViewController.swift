@@ -16,10 +16,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    @IBAction func refreshButtonTapped(_ sender: UIButton) {
+    
+    @IBAction func buttonRandomTrivia(_ sender: UIButton) {
+        toggleActivitiIndicator(on: true)
+        getRandomTrivia()
+    }
+    
+    @IBAction func buttonRandomYear(_ sender: UIButton) {
+        toggleActivitiIndicator(on: true)
+        getRandomYear()
+    }
+    
+    @IBAction func buttonRandomDate(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
         getRandomDate()
     }
+    
+    @IBAction func buttonRandomMath(_ sender: UIButton) {
+        toggleActivitiIndicator(on: true)
+        getRandomMath()
+    }
+    
     
     //Timer
     var timer = Timer()
@@ -46,10 +63,12 @@ class ViewController: UIViewController {
     }
     
     lazy var numManager = APINumManager(apiKey: "")
-    let type = Type(typeRandomTrivia: "random/trivia?json",
-                    typeRandomYear: "random/year?json",
-                    typeRandomDate: "random/date?json",
-                    typeRandomMath: "random/math?json")
+//    let type = Type(typeRandomTrivia: "random/trivia?json",
+//                    typeRandomYear: "random/year?json",
+//                    typeRandomDate: "random/date?json",
+//                    typeRandomMath: "random/math?json")
+    
+    let type = Type()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +99,48 @@ class ViewController: UIViewController {
     
     func getRandomYear() {
         numManager.fetchCurrentYearWith(type: type) { (Result) in
+            self.toggleActivitiIndicator(on: false)
+            
+            switch Result{
+            case .Success(let currentNum):
+                self.updateUIWith(currentNum: currentNum)
+            case .Failure(let error as NSError):
+                let alertController = UIAlertController(title: "Unable to get data",
+                                                        message: "\(error.localizedDescription)",
+                    preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default,
+                                             handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func getRandomTrivia() {
+        numManager.fetchCurrentTriviaWith(type: type) { (Result) in
+            self.toggleActivitiIndicator(on: false)
+            
+            switch Result{
+            case .Success(let currentNum):
+                self.updateUIWith(currentNum: currentNum)
+            case .Failure(let error as NSError):
+                let alertController = UIAlertController(title: "Unable to get data",
+                                                        message: "\(error.localizedDescription)",
+                    preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default,
+                                             handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func getRandomMath() {
+        numManager.fetchCurrentMathaWith(type: type) { (Result) in
             self.toggleActivitiIndicator(on: false)
             
             switch Result{
