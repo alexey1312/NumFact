@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -63,10 +62,6 @@ class ViewController: UIViewController {
     }
     
     lazy var numManager = APINumManager(apiKey: "")
-//    let type = Type(typeRandomTrivia: "random/trivia?json",
-//                    typeRandomYear: "random/year?json",
-//                    typeRandomDate: "random/date?json",
-//                    typeRandomMath: "random/math?json")
     
     let type = Type()
     
@@ -161,9 +156,13 @@ class ViewController: UIViewController {
     }
     
     func updateUIWith(currentNum: CurrentNum) {
-        self.dateLabel.text = "Date: " + String(currentNum.year)
-        self.numberLabel.text = String(currentNum.number)
-        self.textLabel.text = currentNum.text
+
+        if currentNum.year == nil {
+            self.dateLabel.text = "Number: " + String(currentNum.number)
+        } else {
+            self.dateLabel.text = "Date: " + String(currentNum.year ?? 0)
+        }
+            self.textLabel.text = currentNum.text
     }
     
     @objc func stopLoadingSpinner() {

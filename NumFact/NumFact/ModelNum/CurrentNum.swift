@@ -10,26 +10,29 @@ import UIKit
 
 struct CurrentNum {
     let text: String
-    let year: Int
-    let number: Int
     let found: Bool
+    let number: Int
     let type: String
+    let date: String?
+    let year: Int?
 }
 
 extension CurrentNum: JSONDecodable{
     init?(JSON: [String : AnyObject]) {
         
         guard let text = JSON["text"] as? String,
-            let year = JSON["year"] as? Int,
-            let number = JSON["number"] as? Int,
             let found = JSON["found"] as? Bool,
-            let type = JSON["type"] as? String else {
+            let number = JSON["number"] as? Int,
+            let type = JSON["type"] as? String,
+            let date = JSON["date"] as? String?,
+            let year = JSON["year"] as? Int? else {
                 return nil
         }
         self.text = text
-        self.year = year
-        self.number = number
         self.found = found
+        self.number = number
         self.type = type
+        self.date = date
+        self.year = year
     }
 }
