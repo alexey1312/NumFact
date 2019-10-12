@@ -12,26 +12,68 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var buttonDate: UIButton! {
+        didSet {
+            buttonDate.layer.cornerRadius = 20
+            buttonDate.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            buttonDate.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            buttonDate.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+            buttonDate.layer.shadowOpacity = 2.0
+            buttonDate.layer.shadowRadius = 2.0
+        }
+    }
     
-    @IBAction func buttonRandomTrivia(_ sender: UIButton) {
+    @IBOutlet weak var buttonYear: UIButton! {
+        didSet {
+            buttonYear.layer.cornerRadius = 20
+            buttonYear.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            buttonYear.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            buttonYear.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+            buttonYear.layer.shadowOpacity = 2.0
+            buttonYear.layer.shadowRadius = 2.0
+        }
+    }
+    
+    @IBOutlet weak var buttonMath: UIButton!{
+        didSet {
+            buttonMath.layer.cornerRadius = 20
+            buttonMath.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            buttonMath.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            buttonMath.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+            buttonMath.layer.shadowOpacity = 2.0
+            buttonMath.layer.shadowRadius = 2.0
+        }
+    }
+    
+    @IBOutlet weak var buttonTrivia: UIButton! {
+        didSet {
+            buttonTrivia.layer.cornerRadius = 20
+            buttonTrivia.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            buttonTrivia.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            buttonTrivia.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+            buttonTrivia.layer.shadowOpacity = 2.0
+            buttonTrivia.layer.shadowRadius = 2.0
+        }
+    }
+    
+    @IBAction func buttonRandomTriviaAction(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
         getRandomTrivia()
     }
     
-    @IBAction func buttonRandomYear(_ sender: UIButton) {
+    @IBAction func buttonRandomYearAction(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
         getRandomYear()
     }
     
-    @IBAction func buttonRandomDate(_ sender: UIButton) {
+    @IBAction func buttonRandomDateAction(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
         getRandomDate()
     }
     
-    @IBAction func buttonRandomMath(_ sender: UIButton) {
+    @IBAction func buttonRandomMathAction(_ sender: UIButton) {
         toggleActivitiIndicator(on: true)
         getRandomMath()
     }
@@ -47,12 +89,12 @@ class ViewController: UIViewController {
                                      selector: #selector(stopLoadingSpinner),
                                      userInfo: nil,
                                      repeats: false)
-        refreshButton.isHidden = false
+        buttonDate.isHidden = false
     }
     
     func toggleActivitiIndicator(on: Bool) {
         
-        refreshButton.isHidden = on
+        buttonDate.isHidden = on
         if on  {
             activityIndicator.startAnimating()
             timerStart(timeInterval: 10)
@@ -156,13 +198,13 @@ class ViewController: UIViewController {
     }
     
     func updateUIWith(currentNum: CurrentNum) {
-
+        
         if currentNum.year == nil {
             self.dateLabel.text = "Number: " + String(currentNum.number)
         } else {
             self.dateLabel.text = "Date: " + String(currentNum.year ?? 0)
         }
-            self.textLabel.text = currentNum.text
+        self.textLabel.text = currentNum.text
     }
     
     @objc func stopLoadingSpinner() {
