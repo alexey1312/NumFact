@@ -22,14 +22,14 @@ protocol FinalURLPoint {
 }
 
 enum APIResult<T> {
-    case Success(T)
-    case Failure(Error)
+    case success(T)
+    case failure(Error)
 }
 
 protocol APIManager {
     var sessionconfiguration: URLSessionConfiguration { get } //session configuration
     var session: URLSession { get } //session based sessionconfiguration
-    
+
     func JSONTaskWith(request: URLRequest,
                       completionHandler: @escaping JSONCompletionHandler) -> JSONTask
     func fetch<T: JSONDecodable>(request: URLRequest,
@@ -42,22 +42,22 @@ protocol APIManager {
 extension APIManager {
     func JSONTaskWith(request: URLRequest,
                       completionHandler: @escaping JSONCompletionHandler) -> JSONTask {
-        
+
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            
+
             guard let HTTPResponse = response as? HTTPURLResponse else {
-                
+
                 let userInfo = [
                     NSLocalizedDescriptionKey: NSLocalizedString("Missing HTTP Response", comment: "")
                 ]
-                let error = NSError(domain: SWINetworkingErrorDomain,
-                                    code: MissingHTTPResponseError,
+                let error = NSError(domain: networkingErrorDomain,
+                                    code: missingHTTPResponseError,
                                     userInfo: userInfo)
-                
+
                 completionHandler(nil, nil, error)
                 return
             }
-            
+
             if data == nil {
                 if let error = error {
                     completionHandler(nil, HTTPResponse, error)
@@ -78,24 +78,24 @@ extension APIManager {
         }
         return dataTask
     }
-    
+
     func fetch<T>(request: URLRequest,
                   parse: @escaping ([String: AnyObject]) -> T?,
                   completionHandler: @escaping (APIResult<T>) -> Void) {
-        
-        let dataTask = JSONTaskWith(request: request) { (json, response, error) in
+
+        let dataTask = JSONTaskWith(request: request) { (json, _, error) in
             DispatchQueue.main.async(execute: {
                 guard let json = json else {
                     if let error = error {
-                        completionHandler(.Failure(error))
+                        completionHandler(.failure(error))
                     }
                     return
                 }
                 if let value = parse(json) {
-                    completionHandler(.Success(value))
+                    completionHandler(.success(value))
                 } else {
-                    let error = NSError(domain: SWINetworkingErrorDomain, code: 200, userInfo: nil)
-                    completionHandler(.Failure(error))
+                    let error = NSError(domain: networkingErrorDomain, code: 200, userInfo: nil)
+                    completionHandler(.failure(error))
                 }
             })
         }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-public let SWINetworkingErrorDomain = ""
-public let MissingHTTPResponseError = 100
-
-public let UnexpectedError = 200
+public let networkingErrorDomain = ""
+public let missingHTTPResponseError = 100
+public let unexpectedError = 200
