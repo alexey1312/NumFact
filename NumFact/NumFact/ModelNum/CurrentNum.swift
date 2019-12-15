@@ -17,7 +17,7 @@ struct CurrentNum {
     let year: Int?
 }
 
-extension CurrentNum: JSONDecodable {
+extension CurrentNum: Codable {
     init?(JSON: [String: AnyObject]) {
 
         guard let text = JSON["text"] as? String,
