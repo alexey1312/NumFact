@@ -16,10 +16,10 @@ struct TypeRandom {
 }
 
 enum RandomNumType: FinalURLPoint {
-    case trivia(apiKey: String, type: TypeRandom)
-    case year(apiKey: String, type: TypeRandom)
-    case date(apiKey: String, type: TypeRandom)
-    case math(apiKey: String, type: TypeRandom)
+    case trivia(type: TypeRandom)
+    case year(type: TypeRandom)
+    case date(type: TypeRandom)
+    case math(type: TypeRandom)
 
     var baseURL: URL {
         return URL(string: "http://numbersapi.com")!
@@ -27,14 +27,14 @@ enum RandomNumType: FinalURLPoint {
 
     var path: String {
         switch self {
-        case .trivia(let apiKey, let type):
-            return "\(apiKey)/\(type.typeRandomTrivia)"
-        case .year(let apiKey, let type):
-            return "\(apiKey)/\(type.typeRandomYear)"
-        case .date(let apiKey, let type):
-            return "\(apiKey)\(type.typeRandomDate)"
-        case .math(let apiKey, let type):
-            return "\(apiKey)/\(type.typeRandomMath)"
+        case .trivia(let type):
+            return "/\(type.typeRandomTrivia)"
+        case .year(let type):
+            return "/\(type.typeRandomYear)"
+        case .date(let type):
+            return "/\(type.typeRandomDate)"
+        case .math(let type):
+            return "/\(type.typeRandomMath)"
         }
     }
 
@@ -52,21 +52,13 @@ final class APINumManager: APIManager {
         return URLSession(configuration: self.sessionconfiguration)
     }()
 
-    let apiKey: String
-
-    init(sessionConfiguration: URLSessionConfiguration, apiKey: String) {
+    init(sessionConfiguration: URLSessionConfiguration) {
         self.sessionconfiguration = sessionConfiguration
-        self.apiKey = apiKey
-    }
-
-    convenience init(apiKey: String) {
-        self.init(sessionConfiguration: URLSessionConfiguration.default, apiKey: apiKey)
     }
 
     func fetchCurrentDateWith(type: TypeRandom,
                               completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let requestDate = RandomNumType.date(apiKey: self.apiKey,
-                                             type: type).request
+        let requestDate = RandomNumType.date(type: type).request
 
         fetch(request: requestDate, parse: { (json) -> CurrentNum? in
             return CurrentNum(JSON: json)
@@ -76,8 +68,7 @@ final class APINumManager: APIManager {
 
     func fetchCurrentYearWith(type: TypeRandom,
                               completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let requestYear = RandomNumType.year(apiKey: self.apiKey,
-                                             type: type).request
+        let requestYear = RandomNumType.year(type: type).request
 
         fetch(request: requestYear, parse: { (json) -> CurrentNum? in
             return CurrentNum(JSON: json)
@@ -87,8 +78,7 @@ final class APINumManager: APIManager {
 
     func fetchCurrentTriviaWith(type: TypeRandom,
                                 completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let requestYear = RandomNumType.trivia(apiKey: self.apiKey,
-                                               type: type).request
+        let requestYear = RandomNumType.trivia(type: type).request
 
         fetch(request: requestYear, parse: { (json) -> CurrentNum? in
             return CurrentNum(JSON: json)
@@ -98,8 +88,7 @@ final class APINumManager: APIManager {
 
     func fetchCurrentMathaWith(type: TypeRandom,
                                completionHandler: @escaping (APIResult<CurrentNum>) -> Void) {
-        let requestYear = RandomNumType.math(apiKey: self.apiKey,
-                                             type: type).request
+        let requestYear = RandomNumType.math(type: type).request
 
         fetch(request: requestYear, parse: { (json) -> CurrentNum? in
             return CurrentNum(JSON: json)

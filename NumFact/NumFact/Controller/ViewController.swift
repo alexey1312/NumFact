@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let type = TypeRandom()
+    lazy var typeRandom = TypeRandom()
+    lazy var numManager = APINumManager(sessionConfiguration: .default)
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
@@ -104,9 +105,6 @@ class ViewController: UIViewController {
         }
     }
 
-    lazy var numManager = APINumManager(apiKey: "")
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         timerStart(timeInterval: 10)
@@ -114,7 +112,7 @@ class ViewController: UIViewController {
     }
 
     func getRandomDate() {
-        numManager.fetchCurrentDateWith(type: type) { (result) in
+        numManager.fetchCurrentDateWith(type: typeRandom) { (result) in
             self.toggleActivitiIndicator(on: false)
 
             switch result {
@@ -135,7 +133,7 @@ class ViewController: UIViewController {
     }
 
     func getRandomYear() {
-        numManager.fetchCurrentYearWith(type: type) { (result) in
+        numManager.fetchCurrentYearWith(type: typeRandom) { (result) in
             self.toggleActivitiIndicator(on: false)
 
             switch result {
@@ -156,7 +154,7 @@ class ViewController: UIViewController {
     }
 
     func getRandomTrivia() {
-        numManager.fetchCurrentTriviaWith(type: type) { (result) in
+        numManager.fetchCurrentTriviaWith(type: typeRandom) { (result) in
             self.toggleActivitiIndicator(on: false)
 
             switch result {
@@ -177,7 +175,7 @@ class ViewController: UIViewController {
     }
 
     func getRandomMath() {
-        numManager.fetchCurrentMathaWith(type: type) { (result) in
+        numManager.fetchCurrentMathaWith(type: typeRandom) { (result) in
             self.toggleActivitiIndicator(on: false)
 
             switch result {

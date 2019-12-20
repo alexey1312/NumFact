@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +17,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpF-fT-xgn">
                                 <rect key="frame" x="16" y="315" width="343" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="r4s-pH-EFX"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Text">
                                         <attributes>
@@ -30,98 +33,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yXu-as-qVu">
                                 <rect key="frame" x="177" y="134" width="37" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vt-pR-iXk">
-                                <rect key="frame" x="16" y="602" width="55" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="dbd-y4-kgd"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Trivia ">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" metaFont="menu" size="14"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pPf-r5-y4t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rW9-c1-fkQ">
-                                <rect key="frame" x="112" y="602" width="55" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="q5p-iH-Qfz"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Уear ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="menu" size="14"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nHj-Lm-yIG"/>
-                                    <action selector="buttonRandomYearAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rch-p3-vhe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ub-NM-acV">
-                                <rect key="frame" x="206" y="602" width="55" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Date">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" metaFont="menu" size="14"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonRandomDateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdK-CU-M1w"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPM-Vx-gQo">
-                                <rect key="frame" x="304" y="602" width="55" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="PV0-T6-NNy"/>
-                                    <constraint firstAttribute="width" constant="55" id="oNP-fg-AG8"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Math">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="menu" size="14"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonRandomMathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUa-r1-C6t"/>
-                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVc-M2-B82"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYY-kg-mMY">
                                 <rect key="frame" x="16" y="20" width="68.5" height="37"/>
                                 <constraints>
@@ -131,34 +42,144 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="iVu-lt-SNX">
+                                <rect key="frame" x="35" y="602" width="305" height="45"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mkv-3V-GUp">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vt-pR-iXk">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="N2f-3e-gkU"/>
+                                                    <constraint firstAttribute="width" constant="55" id="gd6-wu-Fa4"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Trivia ">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" metaFont="menu" size="14"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pPf-r5-y4t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RRv-tH-USP">
+                                        <rect key="frame" x="82.5" y="0.0" width="55" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rW9-c1-fkQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="XuV-Qk-PRJ"/>
+                                                    <constraint firstAttribute="width" constant="55" id="lAn-MN-5wJ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Уear ">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" metaFont="menu" size="14"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nHj-Lm-yIG"/>
+                                                    <action selector="buttonRandomYearAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rch-p3-vhe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U3d-QP-thO">
+                                        <rect key="frame" x="165" y="0.0" width="55" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ub-NM-acV">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55" id="noY-zO-1hB"/>
+                                                    <constraint firstAttribute="height" constant="45" id="qJ1-Db-3ey"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Date">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" metaFont="menu" size="14"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonRandomDateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdK-CU-M1w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q0q-BD-cEl">
+                                        <rect key="frame" x="245" y="0.0" width="60" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPM-Vx-gQo">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="45"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="IIf-wv-aLm"/>
+                                                    <constraint firstAttribute="width" constant="60" id="nmb-94-X63"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Math">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" metaFont="menu" size="14"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonRandomMathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUa-r1-C6t"/>
+                                                    <action selector="buttonRandomTriviaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVc-M2-B82"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rW9-c1-fkQ" secondAttribute="bottom" constant="20" id="019-XY-h7e"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="leading" secondItem="3Ub-NM-acV" secondAttribute="trailing" constant="43" id="2oI-no-9Wu"/>
-                            <constraint firstItem="lpF-fT-xgn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="49P-It-ovj"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="firstBaseline" secondItem="7Vt-pR-iXk" secondAttribute="firstBaseline" id="BcH-OB-ZPy"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="baseline" secondItem="3Ub-NM-acV" secondAttribute="baseline" id="C7V-Mi-c1T"/>
+                            <constraint firstItem="lpF-fT-xgn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9s4-du-lCD"/>
                             <constraint firstItem="kYY-kg-mMY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Cn8-cp-14W"/>
-                            <constraint firstItem="7Vt-pR-iXk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="E7U-dB-Dja"/>
-                            <constraint firstItem="lpF-fT-xgn" firstAttribute="trailing" secondItem="FPM-Vx-gQo" secondAttribute="trailing" id="ICa-T1-Wkh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iVu-lt-SNX" secondAttribute="bottom" constant="20" id="DNa-As-tW5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kYY-kg-mMY" secondAttribute="trailing" symbolic="YES" id="KaM-oV-N98"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="firstBaseline" secondItem="rW9-c1-fkQ" secondAttribute="firstBaseline" id="LDJ-Kz-GGE"/>
-                            <constraint firstItem="lpF-fT-xgn" firstAttribute="leading" secondItem="kYY-kg-mMY" secondAttribute="leading" id="Mbf-wa-XzC"/>
-                            <constraint firstItem="3Ub-NM-acV" firstAttribute="leading" secondItem="rW9-c1-fkQ" secondAttribute="trailing" constant="39" id="PN2-Bx-Pe8"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="baseline" secondItem="7Vt-pR-iXk" secondAttribute="baseline" id="Vrg-gh-rPC"/>
                             <constraint firstItem="yXu-as-qVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="Wuo-dc-lN6"/>
                             <constraint firstItem="kYY-kg-mMY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z03-ug-0xd"/>
-                            <constraint firstItem="3Ub-NM-acV" firstAttribute="bottom" secondItem="rW9-c1-fkQ" secondAttribute="bottom" id="cQh-KD-T7I"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lpF-fT-xgn" secondAttribute="trailing" symbolic="YES" id="dfB-C0-46g"/>
-                            <constraint firstItem="rW9-c1-fkQ" firstAttribute="leading" secondItem="7Vt-pR-iXk" secondAttribute="trailing" constant="41" id="h23-Cq-baU"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="baseline" secondItem="rW9-c1-fkQ" secondAttribute="baseline" id="iZO-5c-zaY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Vt-pR-iXk" secondAttribute="bottom" constant="20" id="mOB-d1-Rzk"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="firstBaseline" secondItem="3Ub-NM-acV" secondAttribute="firstBaseline" id="mkJ-B8-tn5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iVu-lt-SNX" secondAttribute="trailing" constant="35" id="f25-qE-xad"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lpF-fT-xgn" secondAttribute="trailing" constant="16" id="hSH-Fq-ADg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yXu-as-qVu" secondAttribute="bottom" constant="513" id="nsa-Er-Gc8"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="phd-9J-LTn"/>
+                            <constraint firstItem="iVu-lt-SNX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="poq-xf-a3z"/>
                             <constraint firstItem="yXu-as-qVu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="134" id="q2F-Nd-WJl"/>
-                            <constraint firstItem="FPM-Vx-gQo" firstAttribute="top" secondItem="3Ub-NM-acV" secondAttribute="top" id="ufQ-sH-UFg"/>
+                            <constraint firstItem="lpF-fT-xgn" firstAttribute="leading" secondItem="kYY-kg-mMY" secondAttribute="leading" id="q73-Al-qnB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
